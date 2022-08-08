@@ -1,0 +1,3201 @@
+
+{
+    "type":"object",
+    "properties":{
+        "string-input-406:1162:445":{
+            "type":"string",
+            "default":"cal_rate_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_rate_(.*)\\[.*"
+        },
+        "string-input-502:345":{
+            "type":"string",
+            "default":"lfs_str",
+            "description":"Enter Description",
+            "example":"lfs_str"
+        },
+        "string-input-406:1162:446":{
+            "type":"string",
+            "default":"cal_lfs_(.*)\\[.*",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"cal_lfs_(.*)\\[.*"
+        },
+        "string-input-406:1162:444":{
+            "type":"string",
+            "default":"cal_product",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_product"
+        },
+        "string-input-550:679:1150:460":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "column-filter-550:695:1151:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "column-filter-550:680:1151:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-550:680:445":{
+            "type":"string",
+            "default":"cal_lfs_area_(.*)\\[1000m2]",
+            "description":"Pattern selecting the group of calibration columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_area_(.*)\\[1000m2]"
+        },
+        "string-input-550:680:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[1000m2]",
+            "description":"Pattern selecting the group of columns to be calibrated. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_(.*)\\[1000m2]"
+        },
+        "single-selection-406:422:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"5.3 Storage"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"5.3 Storage"
+            }
+        },
+        "single-selection-406:1162:1166:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 2/1"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 2/1"
+            }
+        },
+        "single-selection-406:1162:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "single-selection-550:680:1150:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 1/2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 1/2"
+            }
+        },
+        "slider-input-679:600":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Appliances Use",
+            "example":{
+                "double":4.0
+            }
+        },
+        "boolean-input-495:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "slider-input-679:602":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Heat",
+            "example":{
+                "double":4.0
+            }
+        },
+        "string-input-550:693:1151:444":{
+            "type":"string",
+            "default":"cal_delta",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_delta"
+        },
+        "column-filter-550:679:1146:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-550:693:1151:446":{
+            "type":"string",
+            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_fwaste_(.*)\\[kcal]"
+        },
+        "string-input-550:693:1151:445":{
+            "type":"string",
+            "default":"cal_lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_fwaste_(.*)\\[kcal]"
+        },
+        "slider-input-679:604":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Product substitution rate",
+            "example":{
+                "double":4.0
+            }
+        },
+        "slider-input-679:603":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Cooled floor fraction",
+            "example":{
+                "double":4.0
+            }
+        },
+        "string-input-406:1162:1188":{
+            "type":"string",
+            "default":"2015",
+            "description":"Enter Description",
+            "example":"2015"
+        },
+        "string-input-550:695:444":{
+            "type":"string",
+            "default":"lfs_diet",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs_diet"
+        },
+        "string-input-550:695:446":{
+            "type":"string",
+            "default":"lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the group of columns to be calibrated. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_diet_(.*)\\[kcal]"
+        },
+        "string-input-550:695:445":{
+            "type":"string",
+            "default":"cal_lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the group of calibration columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_diet_(.*)\\[kcal]"
+        },
+        "string-input-550:695:1150:445":{
+            "type":"string",
+            "default":"cal_delta_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_delta_(.*)\\[.*"
+        },
+        "string-input-550:680:1146:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "string-input-550:695:1150:444":{
+            "type":"string",
+            "default":"cal_rate",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate"
+        },
+        "single-selection-550:653:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "data-type-491:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-550:695:1150:446":{
+            "type":"string",
+            "default":"lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_diet_(.*)\\[kcal]"
+        },
+        "single-selection-550:679:1150:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-550:695:1146:444":{
+            "type":"string",
+            "default":"lfs_diet",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs_diet"
+        },
+        "single-selection-406:1162:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:695:1146:446":{
+            "type":"string",
+            "default":"lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_diet_(.*)\\[kcal]"
+        },
+        "string-input-550:695:1146:445":{
+            "type":"string",
+            "default":"cal_rate_(.*)\\[%\\]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_rate_(.*)\\[%\\]"
+        },
+        "single-selection-550:693:1146:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "string-input-550:680:1151:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "string-input-550:679:444":{
+            "type":"string",
+            "default":"lfs",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs"
+        },
+        "string-input-485:4:343":{
+            "type":"string",
+            "default":"kcal-req",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"kcal-req"
+        },
+        "string-input-550:679:445":{
+            "type":"string",
+            "default":"cal_lfs_travel_(.*)\\[pkm]",
+            "description":"Pattern selecting the group of calibration columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_travel_(.*)\\[pkm]"
+        },
+        "string-input-550:679:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[pkm]",
+            "description":"Pattern selecting the group of columns to be calibrated. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_(.*)\\[pkm]"
+        },
+        "single-selection-492:5:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "column-filter-550:693:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-550:679:1146:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "single-selection-550:693:1151:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Subtraction 1-2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Subtraction 1-2"
+            }
+        },
+        "single-selection-484:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:693:1146:444":{
+            "type":"string",
+            "default":"lfs_fwaste",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs_fwaste"
+        },
+        "boolean-input-494:5:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "data-type-485:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "single-selection-485:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "single-selection-488:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "string-input-550:653:460":{
+            "type":"string",
+            "default":"h",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"h"
+        },
+        "boolean-input-550:693:1150:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "disabled-550:679:1171":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Disable the node. The first input is copied to the output, and calibration rates are set to 1.",
+            "example":false
+        },
+        "single-selection-484:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "single-selection-500:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "column-filter-406:1162:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"cal_rate_activity_agr-wst-wine[%]"
+                    }
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                    "cal_rate_activity_agr-wst-wine[%]",
+                    "cal_rate_activity_agr-wst-beer[%]",
+                    "cal_rate_activity_agr-wst-bev-fer[%]",
+                    "cal_rate_activity_agr-wst-bev-alc[%]",
+                    "cal_rate_activity_agr-wst-cereals[%]",
+                    "cal_rate_activity_agr-wst-fruits[%]",
+                    "cal_rate_activity_agr-wst-oilcrops[%]",
+                    "cal_rate_activity_agr-wst-pulses[%]",
+                    "cal_rate_activity_agr-wst-starch[%]",
+                    "cal_rate_activity_agr-wst-coffee[%]",
+                    "cal_rate_activity_agr-wst-stm[%]",
+                    "cal_rate_activity_agr-wst-sugar[%]",
+                    "cal_rate_activity_agr-wst-sweet[%]",
+                    "cal_rate_activity_agr-wst-voil[%]",
+                    "cal_rate_activity_agr-wst-veg[%]",
+                    "cal_rate_activity_agr-wst-dfish[%]",
+                    "cal_rate_activity_agr-wst-ffish[%]",
+                    "cal_rate_activity_agr-wst-pfish[%]",
+                    "cal_rate_activity_agr-wst-seafood[%]",
+                    "cal_rate_activity_agr-wst-oth-aq-animals[%]",
+                    "cal_rate_activity_agr-wst-egg[%]",
+                    "cal_rate_activity_agr-wst-milk[%]",
+                    "cal_rate_activity_agr-wst-offal[%]",
+                    "cal_rate_activity_agr-wst-bov[%]",
+                    "cal_rate_activity_agr-wst-sheep[%]",
+                    "cal_rate_activity_agr-wst-pigs[%]",
+                    "cal_rate_activity_agr-wst-poultry[%]",
+                    "cal_rate_activity_agr-wst-oth-animals[%]",
+                    "cal_rate_activity_agr-wine[%]",
+                    "cal_rate_activity_agr-beer[%]",
+                    "cal_rate_activity_agr-bev-fer[%]",
+                    "cal_rate_activity_agr-bev-alc[%]",
+                    "cal_rate_activity_agr-cereals[%]",
+                    "cal_rate_activity_agr-fruits[%]",
+                    "cal_rate_activity_agr-oilcrops[%]",
+                    "cal_rate_activity_agr-pulses[%]",
+                    "cal_rate_activity_agr-starch[%]",
+                    "cal_rate_activity_agr-coffee[%]",
+                    "cal_rate_activity_agr-stm[%]",
+                    "cal_rate_activity_agr-sugar[%]",
+                    "cal_rate_activity_agr-sweet[%]",
+                    "cal_rate_activity_agr-voil[%]",
+                    "cal_rate_activity_agr-veg[%]",
+                    "cal_rate_activity_agr-dfish[%]",
+                    "cal_rate_activity_agr-ffish[%]",
+                    "cal_rate_activity_agr-pfish[%]",
+                    "cal_rate_activity_agr-seafood[%]",
+                    "cal_rate_activity_agr-oth-aq-animals[%]",
+                    "cal_rate_activity_agr-egg[%]",
+                    "cal_rate_activity_agr-milk[%]",
+                    "cal_rate_activity_agr-offal[%]",
+                    "cal_rate_activity_agr-bov[%]",
+                    "cal_rate_activity_agr-sheep[%]",
+                    "cal_rate_activity_agr-pigs[%]",
+                    "cal_rate_activity_agr-poultry[%]",
+                    "cal_rate_activity_agr-oth-animals[%]",
+                    "cal_rate_activity_tra-total-demand[%]",
+                    "cal_rate_activity_bld-floor-space[%]"
+                ]
+            }
+        },
+        "single-selection-488:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-406:1162:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "string-input-550:693:1164":{
+            "type":"string",
+            "default":"2013",
+            "description":"Enter Description",
+            "example":"2013"
+        },
+        "string-input-550:693:1163":{
+            "type":"string",
+            "default":"1990",
+            "description":"Enter Description",
+            "example":"1990"
+        },
+        "single-selection-500:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:693:1146:445":{
+            "type":"string",
+            "default":"cal_rate_(.*)\\[%\\]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_rate_(.*)\\[%\\]"
+        },
+        "string-input-550:693:1146:446":{
+            "type":"string",
+            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_fwaste_(.*)\\[kcal]"
+        },
+        "column-filter-550:679:1151:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-406:395":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"1.1 Lifestyle"
+                }
+            },
+            "description":"Name of the current module",
+            "example":{
+                "variable_value":"1.1 Lifestyle"
+            }
+        },
+        "string-input-550:695:1150:460":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "string-input-550:680:1150:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[1000m2]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_(.*)\\[1000m2]"
+        },
+        "single-selection-550:695:1146:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "string-input-494:5:343":{
+            "type":"string",
+            "default":"diet",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"diet"
+        },
+        "string-input-550:695:1146:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "string-input-550:680:1150:445":{
+            "type":"string",
+            "default":"cal_delta_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_delta_(.*)\\[.*"
+        },
+        "single-selection-559:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "single-selection-550:695:1150:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-550:680:1150:444":{
+            "type":"string",
+            "default":"cal_rate",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate"
+        },
+        "single-selection-495:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "single-selection-489:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "column-filter-550:653:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"lfs_appliance-own_fridge[num]"
+                    }
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                    "lfs_appliance-own_fridge[num]",
+                    "lfs_appliance-own_freezer[num]",
+                    "lfs_appliance-own_wmachine[num]",
+                    "lfs_appliance-own_dryer[num]",
+                    "lfs_appliance-own_dishwasher[num]",
+                    "lfs_appliance-own_tv[num]",
+                    "lfs_appliance-own_comp[num]",
+                    "lfs_appliance-own_phone[num]"
+                ]
+            }
+        },
+        "string-input-670:667:343":{
+            "type":"string",
+            "default":"floorarea",
+            "description":"the calibration name should be the same as the file name (without prefix ots-fts-ll and module trigram)",
+            "example":"floorarea"
+        },
+        "data-type-487:5:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-550:679:1146:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[pkm]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_(.*)\\[pkm]"
+        },
+        "string-input-550:679:1146:445":{
+            "type":"string",
+            "default":"cal_rate_(.*)\\[%\\]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_rate_(.*)\\[%\\]"
+        },
+        "single-selection-670:672:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "column-filter-550:693:1151:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-550:680:444":{
+            "type":"string",
+            "default":"lfs",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs"
+        },
+        "string-input-550:679:1146:444":{
+            "type":"string",
+            "default":"lfs",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs"
+        },
+        "single-selection-559:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:680:1146:444":{
+            "type":"string",
+            "default":"lfs",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs"
+        },
+        "string-input-550:679:1150:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[pkm]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_(.*)\\[pkm]"
+        },
+        "single-selection-550:693:1150:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-550:680:1146:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[1000m2]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_(.*)\\[1000m2]"
+        },
+        "string-input-550:679:1150:444":{
+            "type":"string",
+            "default":"cal_rate",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate"
+        },
+        "data-type-492:5:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "single-selection-550:695:1150:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 1/2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 1/2"
+            }
+        },
+        "string-input-550:680:1146:445":{
+            "type":"string",
+            "default":"cal_rate_(.*)\\[%\\]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_rate_(.*)\\[%\\]"
+        },
+        "string-input-550:679:1150:445":{
+            "type":"string",
+            "default":"cal_delta_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_delta_(.*)\\[.*"
+        },
+        "data-type-484:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "column-filter-550:680:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-487:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "single-selection-550:695:1151:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Subtraction 1-2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Subtraction 1-2"
+            }
+        },
+        "boolean-input-550:693:1146:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-558:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "boolean-input-489:5:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "single-selection-406:1162:1202:658":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "disabled-550:680:1171":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Disable the node. The first input is copied to the output, and calibration rates are set to 1.",
+            "example":false
+        },
+        "single-selection-558:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-501:345":{
+            "type":"string",
+            "default":"lfs_ind",
+            "description":"Enter Description",
+            "example":"lfs_ind"
+        },
+        "single-selection-550:695:1150:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "single-selection-550:679:1146:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "string-input-694:345":{
+            "type":"string",
+            "default":"lfs_gtap",
+            "description":"Enter Description",
+            "example":"lfs_gtap"
+        },
+        "string-input-550:695:1151:446":{
+            "type":"string",
+            "default":"lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_diet_(.*)\\[kcal]"
+        },
+        "string-input-550:695:1151:445":{
+            "type":"string",
+            "default":"cal_lfs_diet_(.*)\\[kcal]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_diet_(.*)\\[kcal]"
+        },
+        "single-selection-406:1162:1202:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"SPLIT"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"SPLIT"
+            }
+        },
+        "string-input-550:695:1151:444":{
+            "type":"string",
+            "default":"cal_delta",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_delta"
+        },
+        "single-selection-494:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-550:680:1150:460":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "boolean-input-406:1162:1166:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-678:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-550:693:1150:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 1/2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 1/2"
+            }
+        },
+        "single-selection-550:680:1151:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "single-selection-0:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "slider-input-679:599":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Appliances Own",
+            "example":{
+                "double":4.0
+            }
+        },
+        "column-filter-550:695:1150:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "slider-input-679:596":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":1.0
+                }
+            },
+            "description":"Select Floor space",
+            "example":{
+                "double":1.0
+            }
+        },
+        "data-type-559:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-550:653:445":{
+            "type":"string",
+            "default":"lfs_appliance-use_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_appliance-use_(.*)\\[.*"
+        },
+        "slider-input-679:595":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select Food waste",
+            "example":{
+                "double":4.0
+            }
+        },
+        "string-input-550:653:446":{
+            "type":"string",
+            "default":"lfs_appliance-own_(.*)\\[.*",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_appliance-own_(.*)\\[.*"
+        },
+        "slider-input-679:598":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select population",
+            "example":{
+                "double":4.0
+            }
+        },
+        "single-selection-406:1162:1166:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "slider-input-679:597":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select PKM",
+            "example":{
+                "double":4.0
+            }
+        },
+        "single-selection-550:679:1151:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "string-input-550:679:1151:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "string-input-550:653:444":{
+            "type":"string",
+            "default":"lfs_appliance-use",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs_appliance-use"
+        },
+        "single-selection-552:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "boolean-input-485:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "single-selection-550:695:1151:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "boolean-input-558:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "single-selection-406:1162:1180:350":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Sum"
+                }
+            },
+            "description":"Method used to combine columns.",
+            "example":{
+                "variable_value":"Sum"
+            }
+        },
+        "single-selection-406:1174:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"4.4 Water"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"4.4 Water"
+            }
+        },
+        "single-selection-498:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "slider-input-679:592":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":4.0
+                }
+            },
+            "description":"Select urban population",
+            "example":{
+                "double":4.0
+            }
+        },
+        "slider-input-679:594":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":2.0
+                }
+            },
+            "description":"Select Biophisical calorie requirements",
+            "example":{
+                "double":2.0
+            }
+        },
+        "slider-input-679:593":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":1.0
+                }
+            },
+            "description":"Select Diet",
+            "example":{
+                "double":1.0
+            }
+        },
+        "string-input-550:679:1151:444":{
+            "type":"string",
+            "default":"cal_delta",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_delta"
+        },
+        "string-input-552:4:343":{
+            "type":"string",
+            "default":"appliance-use",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"appliance-use"
+        },
+        "column-filter-550:680:1146:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-550:679:1151:445":{
+            "type":"string",
+            "default":"cal_lfs_travel_(.*)\\[pkm]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_travel_(.*)\\[pkm]"
+        },
+        "string-input-550:679:1151:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[pkm]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_(.*)\\[pkm]"
+        },
+        "single-selection-694:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "boolean-input-487:5:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "slider-input-679:584":{
+            "type":"object",
+            "properties":{
+                "double":{
+                    "type":"number",
+                    "default":2.0
+                }
+            },
+            "description":"Select population",
+            "example":{
+                "double":2.0
+            }
+        },
+        "boolean-input-559:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "single-selection-406:428:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Naming convention"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"Naming convention"
+            }
+        },
+        "single-selection-670:665:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-491:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "column-filter-550:695:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-502:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "boolean-input-484:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "string-input-497:345":{
+            "type":"string",
+            "default":"lfs_tra",
+            "description":"Enter Description",
+            "example":"lfs_tra"
+        },
+        "data-type-495:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-670:666:343":{
+            "type":"string",
+            "default":"travel",
+            "description":"the calibration name should be the same as the file name (without prefix ots-fts-ll and module trigram)",
+            "example":"travel"
+        },
+        "single-selection-406:1162:1202:645":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 1/2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 1/2"
+            }
+        },
+        "string-input-550:695:1151:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "column-filter-550:693:1146:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "column-filter-550:679:1150:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "string-input-703:843":{
+            "type":"string",
+            "default":"Paper demand (EUREF)",
+            "description":"Enter Description",
+            "example":"Paper demand (EUREF)"
+        },
+        "single-selection-678:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-550:695:1163":{
+            "type":"string",
+            "default":"2000",
+            "description":"Enter Description",
+            "example":"2000"
+        },
+        "string-input-550:695:1164":{
+            "type":"string",
+            "default":"2013",
+            "description":"Enter Description",
+            "example":"2013"
+        },
+        "string-input-670:672:343":{
+            "type":"string",
+            "default":"fwaste",
+            "description":"the calibration name should be the same as the file name (without prefix ots-fts-ll and module trigram)",
+            "example":"fwaste"
+        },
+        "boolean-input-406:1162:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-492:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "boolean-input-550:679:1150:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "data-type-552:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-695:345":{
+            "type":"string",
+            "default":"lfs_air",
+            "description":"Enter Description",
+            "example":"lfs_air"
+        },
+        "string-input-406:1162:1166:444":{
+            "type":"string",
+            "default":"cal_rate",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate"
+        },
+        "single-selection-559:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-406:1162:1166:446":{
+            "type":"string",
+            "default":".*cal_product_(.*)\\[.*",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":".*cal_product_(.*)\\[.*"
+        },
+        "string-input-406:1162:1166:445":{
+            "type":"string",
+            "default":".*cal_lfs_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":".*cal_lfs_(.*)\\[.*"
+        },
+        "data-type-558:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "boolean-input-492:5:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "string-input-705:345":{
+            "type":"string",
+            "default":"lfs_wat",
+            "description":"Enter Description",
+            "example":"lfs_wat"
+        },
+        "data-type-489:5:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "boolean-input-550:680:1146:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-695:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-550:653:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "single-selection-406:1162:1166:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-488:4:343":{
+            "type":"string",
+            "default":"floor-intensity",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"floor-intensity"
+        },
+        "single-selection-488:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-500:4:343":{
+            "type":"string",
+            "default":"urbpop",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"urbpop"
+        },
+        "single-selection-550:679:1150:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "single-selection-500:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-550:680:1163":{
+            "type":"string",
+            "default":"1990",
+            "description":"Enter Description",
+            "example":"1990"
+        },
+        "string-input-558:4:343":{
+            "type":"string",
+            "default":"heatcool-behaviour",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"heatcool-behaviour"
+        },
+        "single-selection-550:693:1151:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-550:680:1164":{
+            "type":"string",
+            "default":"2010",
+            "description":"Enter Description",
+            "example":"2010"
+        },
+        "boolean-input-550:693:1151:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "single-selection-550:680:1151:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "single-selection-487:5:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-406:408:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"4.3 Agriculture"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"4.3 Agriculture"
+            }
+        },
+        "single-selection-550:693:1151:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "single-selection-501:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:693:444":{
+            "type":"string",
+            "default":"lfs_fwaste",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"lfs_fwaste"
+        },
+        "string-input-550:693:446":{
+            "type":"string",
+            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the group of columns to be calibrated. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"lfs_fwaste_(.*)\\[kcal]"
+        },
+        "string-input-550:693:445":{
+            "type":"string",
+            "default":"cal_lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the group of calibration columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_fwaste_(.*)\\[kcal]"
+        },
+        "single-selection-495:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "boolean-input-491:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "string-input-550:693:1150:460":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "single-selection-670:666:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-552:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-494:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "single-selection-489:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-670:665:343":{
+            "type":"string",
+            "default":"diet",
+            "description":"the calibration name should be the same as the file name (without prefix ots-fts-ll and module trigram)",
+            "example":"diet"
+        },
+        "single-selection-550:679:1151:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Subtraction 1-2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Subtraction 1-2"
+            }
+        },
+        "disabled-550:695:1171":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Disable the node. The first input is copied to the output, and calibration rates are set to 1.",
+            "example":false
+        },
+        "string-input-406:1162:1166:460":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "boolean-input-550:680:1151:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "column-filter-406:1162:1166:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"Sum(cal_product_activity_agr-wst-wine[%])"
+                    }
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                    "Sum(cal_product_activity_agr-wst-wine[%])",
+                    "Sum(cal_product_activity_agr-wst-beer[%])",
+                    "Sum(cal_product_activity_agr-wst-bev-fer[%])",
+                    "Sum(cal_product_activity_agr-wst-bev-alc[%])",
+                    "Sum(cal_product_activity_agr-wst-cereals[%])",
+                    "Sum(cal_product_activity_agr-wst-fruits[%])",
+                    "Sum(cal_product_activity_agr-wst-oilcrops[%])",
+                    "Sum(cal_product_activity_agr-wst-pulses[%])",
+                    "Sum(cal_product_activity_agr-wst-starch[%])",
+                    "Sum(cal_product_activity_agr-wst-coffee[%])",
+                    "Sum(cal_product_activity_agr-wst-stm[%])",
+                    "Sum(cal_product_activity_agr-wst-sugar[%])",
+                    "Sum(cal_product_activity_agr-wst-sweet[%])",
+                    "Sum(cal_product_activity_agr-wst-voil[%])",
+                    "Sum(cal_product_activity_agr-wst-veg[%])",
+                    "Sum(cal_product_activity_agr-wst-dfish[%])",
+                    "Sum(cal_product_activity_agr-wst-ffish[%])",
+                    "Sum(cal_product_activity_agr-wst-pfish[%])",
+                    "Sum(cal_product_activity_agr-wst-seafood[%])",
+                    "Sum(cal_product_activity_agr-wst-oth-aq-animals[%])",
+                    "Sum(cal_product_activity_agr-wst-egg[%])",
+                    "Sum(cal_product_activity_agr-wst-milk[%])",
+                    "Sum(cal_product_activity_agr-wst-offal[%])",
+                    "Sum(cal_product_activity_agr-wst-bov[%])",
+                    "Sum(cal_product_activity_agr-wst-sheep[%])",
+                    "Sum(cal_product_activity_agr-wst-pigs[%])",
+                    "Sum(cal_product_activity_agr-wst-poultry[%])",
+                    "Sum(cal_product_activity_agr-wst-oth-animals[%])",
+                    "Sum(cal_product_activity_agr-wine[%])",
+                    "Sum(cal_product_activity_agr-beer[%])",
+                    "Sum(cal_product_activity_agr-bev-fer[%])",
+                    "Sum(cal_product_activity_agr-bev-alc[%])",
+                    "Sum(cal_product_activity_agr-cereals[%])",
+                    "Sum(cal_product_activity_agr-fruits[%])",
+                    "Sum(cal_product_activity_agr-oilcrops[%])",
+                    "Sum(cal_product_activity_agr-pulses[%])",
+                    "Sum(cal_product_activity_agr-starch[%])",
+                    "Sum(cal_product_activity_agr-coffee[%])",
+                    "Sum(cal_product_activity_agr-stm[%])",
+                    "Sum(cal_product_activity_agr-sugar[%])",
+                    "Sum(cal_product_activity_agr-sweet[%])",
+                    "Sum(cal_product_activity_agr-voil[%])",
+                    "Sum(cal_product_activity_agr-veg[%])",
+                    "Sum(cal_product_activity_agr-dfish[%])",
+                    "Sum(cal_product_activity_agr-ffish[%])",
+                    "Sum(cal_product_activity_agr-pfish[%])",
+                    "Sum(cal_product_activity_agr-seafood[%])",
+                    "Sum(cal_product_activity_agr-oth-aq-animals[%])",
+                    "Sum(cal_product_activity_agr-egg[%])",
+                    "Sum(cal_product_activity_agr-milk[%])",
+                    "Sum(cal_product_activity_agr-offal[%])",
+                    "Sum(cal_product_activity_agr-bov[%])",
+                    "Sum(cal_product_activity_agr-sheep[%])",
+                    "Sum(cal_product_activity_agr-pigs[%])",
+                    "Sum(cal_product_activity_agr-poultry[%])",
+                    "Sum(cal_product_activity_agr-oth-animals[%])",
+                    "Sum(cal_product_activity_tra-total-demand[%])",
+                    "Sum(cal_product_activity_bld-floor-space[%])"
+                ]
+            }
+        },
+        "column-filter-550:679:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-552:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "data-type-678:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "boolean-input-550:695:1146:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-691:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-550:695:1151:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "string-input-489:5:343":{
+            "type":"string",
+            "default":"fwaste",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"fwaste"
+        },
+        "single-selection-406:420:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"2.1 Buildings"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"2.1 Buildings"
+            }
+        },
+        "single-selection-484:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "string-input-498:345":{
+            "type":"string",
+            "default":"lfs_bld",
+            "description":"Enter Description",
+            "example":"lfs_bld"
+        },
+        "boolean-input-678:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "single-selection-497:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "column-filter-406:1162:1180:362":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-550:679:1151:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "boolean-input-550:695:1150:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "string-input-692:345":{
+            "type":"string",
+            "default":"lfs_emp",
+            "description":"Enter Description",
+            "example":"lfs_emp"
+        },
+        "single-selection-550:680:1151:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Subtraction 1-2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Subtraction 1-2"
+            }
+        },
+        "string-input-550:693:1150:446":{
+            "type":"string",
+            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_fwaste_(.*)\\[kcal]"
+        },
+        "string-input-550:693:1150:444":{
+            "type":"string",
+            "default":"cal_rate",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate"
+        },
+        "string-input-550:693:1150:445":{
+            "type":"string",
+            "default":"cal_delta_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_delta_(.*)\\[.*"
+        },
+        "string-input-550:693:1146:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "disabled-550:693:1171":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Disable the node. The first input is copied to the output, and calibration rates are set to 1.",
+            "example":false
+        },
+        "column-filter-550:680:1150:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-489:5:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-406:1162:1180:354":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Will be added to the name of the new column.",
+            "example":"unit"
+        },
+        "string-input-406:1162:1180:357":{
+            "type":"string",
+            "default":".*lfs_activity.*",
+            "description":"Pattern selecting the columns to aggregate following the aggregation method (see below).\nThis pattern must be written in a Regex format.\nExample: \"sector_variable_.*\" to aggregate all the columns of the same variable from one sector.",
+            "example":".*lfs_activity.*"
+        },
+        "single-selection-495:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "boolean-input-550:679:1151:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "string-input-492:5:343":{
+            "type":"string",
+            "default":"kcal-req",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"kcal-req"
+        },
+        "single-selection-492:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "string-input-491:4:343":{
+            "type":"string",
+            "default":"paperpack",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"paperpack"
+        },
+        "single-selection-485:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-487:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "string-input-406:1162:1202:644":{
+            "type":"string",
+            "default":"%",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"%"
+        },
+        "string-input-406:1162:1202:642":{
+            "type":"string",
+            "default":".*lfs_activity_(.*)\\[.*",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. ",
+            "example":".*lfs_activity_(.*)\\[.*"
+        },
+        "string-input-406:1162:1202:643":{
+            "type":"string",
+            "default":"activity.*",
+            "description":"Pattern selecting the fixed column. The pattern should return only one column.  \nExamples: \"sector_demand_.*\"",
+            "example":"activity.*"
+        },
+        "string-input-406:1162:1202:641":{
+            "type":"string",
+            "default":"cal_rate_activity",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_rate_activity"
+        },
+        "single-selection-558:1:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"ots"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"ots"
+            }
+        },
+        "boolean-input-552:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "column-filter-406:1162:1202:653":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "boolean-input-550:680:1150:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "data-type-494:5:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-678:343":{
+            "type":"string",
+            "default":"product-substitution-rate",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"product-substitution-rate"
+        },
+        "single-selection-550:680:1150:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "boolean-input-500:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "boolean-input-488:4:360":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Enter Description",
+            "example":false
+        },
+        "column-filter-550:695:1146:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "boolean-input-406:1162:1202:646":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-705:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "boolean-input-550:679:1146:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "single-selection-406:1186:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"6.4 Employment"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"6.4 Employment"
+            }
+        },
+        "single-selection-550:653:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "single-selection-406:1162:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "single-selection-491:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "boolean-input-550:653:586":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation.",
+            "example":true
+        },
+        "column-filter-703:844":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"Country"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "columns":[
+                    "Country",
+                    "Years",
+                    "lfs_non-shift[pkm]",
+                    "lfs_travel-no-urb[pkm]",
+                    "lfs_travel-urb[pkm]"
+                ]
+            }
+        },
+        "single-selection-678:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "single-selection-550:693:1150:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "boolean-input-550:695:1151:586":{
+            "type":"boolean",
+            "default":"false",
+            "description":"Remove columns used in the calculation.",
+            "example":false
+        },
+        "string-input-487:5:343":{
+            "type":"string",
+            "default":"pkm",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"pkm"
+        },
+        "boolean-input-406:1162:1180:359":{
+            "type":"boolean",
+            "default":"true",
+            "description":"Remove columns used in the calculation",
+            "example":true
+        },
+        "single-selection-550:680:1150:659:661":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"PARALLEL_OP"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"PARALLEL_OP"
+            }
+        },
+        "string-input-484:4:343":{
+            "type":"string",
+            "default":"pop",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"pop"
+        },
+        "single-selection-550:680:1146:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Product"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Product"
+            }
+        },
+        "single-selection-550:679:1150:463":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Division 1/2"
+                }
+            },
+            "description":"Method used to combine columns. For asymetric operations, the direction of the operation is specified, e.g. \"Division 2/1\" means dividing columns from the second group by columns from the first group.",
+            "example":{
+                "variable_value":"Division 1/2"
+            }
+        },
+        "single-selection-485:3:314":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"fts"
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":"fts"
+            }
+        },
+        "data-type-500:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "single-selection-406:1193:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"6.3 Air Pollution"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"6.3 Air Pollution"
+            }
+        },
+        "data-type-488:4:357":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"historical"
+                    }
+                }
+            },
+            "description":"Enter Description",
+            "example":{
+                "variable_value":[
+                    "historical",
+                    "projection"
+                ]
+            }
+        },
+        "string-input-559:4:343":{
+            "type":"string",
+            "default":"cooled-floor-fraction",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"cooled-floor-fraction"
+        },
+        "string-input-495:343":{
+            "type":"string",
+            "default":"appliance-own",
+            "description":"the lever name should be the same as the file name (without prefix ots-fts-ll)",
+            "example":"appliance-own"
+        },
+        "single-selection-406:419:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"2.2 Transport"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"2.2 Transport"
+            }
+        },
+        "string-input-550:693:1151:460":{
+            "type":"string",
+            "default":"unit",
+            "description":"New unit for the output columns. Not changing this option or setting it to \"unit\" keeps the unit from the first column group.",
+            "example":"unit"
+        },
+        "column-filter-550:693:1150:652":{
+            "type":"object",
+            "properties":{
+                "columns":{
+                    "type":"array"
+                }
+            },
+            "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
+            "example":{
+                "columns":[
+                ]
+            }
+        },
+        "single-selection-406:1162:653":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"Java"
+                }
+            },
+            "description":"Select code language to use",
+            "example":{
+                "variable_value":"Java"
+            }
+        },
+        "string-input-691:345":{
+            "type":"string",
+            "default":"lfs_min",
+            "description":"Enter Description",
+            "example":"lfs_min"
+        },
+        "string-input-0:345":{
+            "type":"string",
+            "default":"lfs_agr",
+            "description":"Enter Description",
+            "example":"lfs_agr"
+        },
+        "string-input-550:680:1151:445":{
+            "type":"string",
+            "default":"cal_lfs_area_(.*)\\[1000m2]",
+            "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
+            "example":"cal_lfs_area_(.*)\\[1000m2]"
+        },
+        "string-input-550:680:1151:446":{
+            "type":"string",
+            "default":"lfs_(.*)\\[1000m2]",
+            "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
+            "example":"lfs_(.*)\\[1000m2]"
+        },
+        "single-selection-494:5:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-491:4:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "string-input-550:679:1164":{
+            "type":"string",
+            "default":"2015",
+            "description":"Enter Description",
+            "example":"2015"
+        },
+        "single-selection-406:1182:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"4.2 Minerals"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"4.2 Minerals"
+            }
+        },
+        "string-input-550:679:1163":{
+            "type":"string",
+            "default":"1990",
+            "description":"Enter Description",
+            "example":"1990"
+        },
+        "string-input-550:680:1151:444":{
+            "type":"string",
+            "default":"cal_delta",
+            "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
+            "example":"cal_delta"
+        },
+        "string-input-406:1162:1180:349":{
+            "type":"string",
+            "default":"activity_total",
+            "description":"Name of resulting column. The name will be appended with the unit (see below)",
+            "example":"activity_total"
+        },
+        "single-selection-692:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        },
+        "single-selection-406:421:394":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"3.1a Industry"
+                }
+            },
+            "description":"Name of the linked module",
+            "example":{
+                "variable_value":"3.1a Industry"
+            }
+        },
+        "single-selection-670:667:355":{
+            "type":"object",
+            "properties":{
+                "variable_value":{
+                    "type":"string",
+                    "default":"lifestyles"
+                }
+            },
+            "description":"Module Selection",
+            "example":{
+                "variable_value":"lifestyles"
+            }
+        }
+    }
+}
