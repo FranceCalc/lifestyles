@@ -30,7 +30,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" value="Reads the levers on building use by country and age class. For the historical part, values of building use are provided for country."/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <config key="workflow_credentials"/>
 <config key="annotations">
 <config key="annotation_0">

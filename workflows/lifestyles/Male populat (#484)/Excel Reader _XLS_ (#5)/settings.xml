@@ -73,7 +73,11 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Can't open specified location (knime://LOCAL/lifestyles/data/world_pop.xlsx)"/>
+</config>
 <entry key="factory" type="xstring" value="org.knime.ext.poi2.node.read3.XLSReaderNodeFactory"/>
 <entry key="node-name" type="xstring" value="Excel Reader (XLS)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME POI (xls/xlsx) Plug-in"/>
@@ -86,19 +90,16 @@
 <entry key="node-feature-version" type="xstring" value="3.7.0.v201811161634"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Excel Reader (XLS)"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 33, Cols: 2"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="b284d5a3-9bd0-4975-991c-cfcf5619f9ef"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

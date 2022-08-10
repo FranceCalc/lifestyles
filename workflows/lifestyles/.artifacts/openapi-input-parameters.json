@@ -16,9 +16,9 @@
         },
         "string-input-406:1162:446":{
             "type":"string",
-            "default":"cal_lfs_(.*)\\[.*",
+            "default":"",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"cal_lfs_(.*)\\[.*"
+            "example":""
         },
         "string-input-406:1162:444":{
             "type":"string",
@@ -36,12 +36,19 @@
             "type":"object",
             "properties":{
                 "columns":{
-                    "type":"array"
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"cal_tra_calibration_HDV[Gtkm]"
+                    }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
+                    "cal_tra_calibration_HDV[Gtkm]",
+                    "cal_tra_calibration_rail[Gtkm]",
+                    "cal_tra_calibration_IWW[Gtkm]"
                 ]
             }
         },
@@ -49,12 +56,19 @@
             "type":"object",
             "properties":{
                 "columns":{
-                    "type":"array"
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"cal_tra_calibration_HDV[Gtkm]"
+                    }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
+                    "cal_tra_calibration_HDV[Gtkm]",
+                    "cal_tra_calibration_rail[Gtkm]",
+                    "cal_tra_calibration_IWW[Gtkm]"
                 ]
             }
         },
@@ -175,15 +189,15 @@
         },
         "string-input-550:693:1151:446":{
             "type":"string",
-            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_fwaste_(.*)\\[kcal]"
+            "example":".*"
         },
         "string-input-550:693:1151:445":{
             "type":"string",
-            "default":"cal_lfs_fwaste_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"cal_lfs_fwaste_(.*)\\[kcal]"
+            "example":".*"
         },
         "slider-input-679:604":{
             "type":"object",
@@ -287,9 +301,9 @@
         },
         "string-input-550:695:1150:446":{
             "type":"string",
-            "default":"lfs_diet_(.*)\\[kcal]",
+            "default":"identifier",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_diet_(.*)\\[kcal]"
+            "example":"identifier"
         },
         "single-selection-550:679:1150:659:661":{
             "type":"object",
@@ -306,9 +320,9 @@
         },
         "string-input-550:695:1146:444":{
             "type":"string",
-            "default":"lfs_diet",
+            "default":"prefix",
             "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
-            "example":"lfs_diet"
+            "example":"prefix"
         },
         "single-selection-406:1162:355":{
             "type":"object",
@@ -325,9 +339,9 @@
         },
         "string-input-550:695:1146:446":{
             "type":"string",
-            "default":"lfs_diet_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"lfs_diet_(.*)\\[kcal]"
+            "example":".*"
         },
         "string-input-550:695:1146:445":{
             "type":"string",
@@ -438,9 +452,9 @@
         },
         "string-input-550:693:1146:444":{
             "type":"string",
-            "default":"lfs_fwaste",
+            "default":"prefix",
             "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
-            "example":"lfs_fwaste"
+            "example":"prefix"
         },
         "boolean-input-494:5:360":{
             "type":"boolean",
@@ -544,71 +558,25 @@
                     "type":"array",
                     "items":{
                         "type":"string",
-                        "default":"cal_rate_activity_agr-wst-wine[%]"
+                        "default":"cal_rate_emissions_total[%]"
                     }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
-                    "cal_rate_activity_agr-wst-wine[%]",
-                    "cal_rate_activity_agr-wst-beer[%]",
-                    "cal_rate_activity_agr-wst-bev-fer[%]",
-                    "cal_rate_activity_agr-wst-bev-alc[%]",
-                    "cal_rate_activity_agr-wst-cereals[%]",
-                    "cal_rate_activity_agr-wst-fruits[%]",
-                    "cal_rate_activity_agr-wst-oilcrops[%]",
-                    "cal_rate_activity_agr-wst-pulses[%]",
-                    "cal_rate_activity_agr-wst-starch[%]",
-                    "cal_rate_activity_agr-wst-coffee[%]",
-                    "cal_rate_activity_agr-wst-stm[%]",
-                    "cal_rate_activity_agr-wst-sugar[%]",
-                    "cal_rate_activity_agr-wst-sweet[%]",
-                    "cal_rate_activity_agr-wst-voil[%]",
-                    "cal_rate_activity_agr-wst-veg[%]",
-                    "cal_rate_activity_agr-wst-dfish[%]",
-                    "cal_rate_activity_agr-wst-ffish[%]",
-                    "cal_rate_activity_agr-wst-pfish[%]",
-                    "cal_rate_activity_agr-wst-seafood[%]",
-                    "cal_rate_activity_agr-wst-oth-aq-animals[%]",
-                    "cal_rate_activity_agr-wst-egg[%]",
-                    "cal_rate_activity_agr-wst-milk[%]",
-                    "cal_rate_activity_agr-wst-offal[%]",
-                    "cal_rate_activity_agr-wst-bov[%]",
-                    "cal_rate_activity_agr-wst-sheep[%]",
-                    "cal_rate_activity_agr-wst-pigs[%]",
-                    "cal_rate_activity_agr-wst-poultry[%]",
-                    "cal_rate_activity_agr-wst-oth-animals[%]",
-                    "cal_rate_activity_agr-wine[%]",
-                    "cal_rate_activity_agr-beer[%]",
-                    "cal_rate_activity_agr-bev-fer[%]",
-                    "cal_rate_activity_agr-bev-alc[%]",
-                    "cal_rate_activity_agr-cereals[%]",
-                    "cal_rate_activity_agr-fruits[%]",
-                    "cal_rate_activity_agr-oilcrops[%]",
-                    "cal_rate_activity_agr-pulses[%]",
-                    "cal_rate_activity_agr-starch[%]",
-                    "cal_rate_activity_agr-coffee[%]",
-                    "cal_rate_activity_agr-stm[%]",
-                    "cal_rate_activity_agr-sugar[%]",
-                    "cal_rate_activity_agr-sweet[%]",
-                    "cal_rate_activity_agr-voil[%]",
-                    "cal_rate_activity_agr-veg[%]",
-                    "cal_rate_activity_agr-dfish[%]",
-                    "cal_rate_activity_agr-ffish[%]",
-                    "cal_rate_activity_agr-pfish[%]",
-                    "cal_rate_activity_agr-seafood[%]",
-                    "cal_rate_activity_agr-oth-aq-animals[%]",
-                    "cal_rate_activity_agr-egg[%]",
-                    "cal_rate_activity_agr-milk[%]",
-                    "cal_rate_activity_agr-offal[%]",
-                    "cal_rate_activity_agr-bov[%]",
-                    "cal_rate_activity_agr-sheep[%]",
-                    "cal_rate_activity_agr-pigs[%]",
-                    "cal_rate_activity_agr-poultry[%]",
-                    "cal_rate_activity_agr-oth-animals[%]",
-                    "cal_rate_activity_tra-total-demand[%]",
-                    "cal_rate_activity_bld-floor-space[%]"
+                    "cal_rate_emissions_total[%]",
+                    "cal_rate_energy_rail[%]",
+                    "cal_rate_energy_road[%]",
+                    "cal_rate_energy_aviation-international[%]",
+                    "cal_rate_energy_aviation-domestic[%]",
+                    "cal_rate_activity_aviation[%]",
+                    "cal_rate_activity_rail-passenger[%]",
+                    "cal_rate_activity_road-private[%]",
+                    "cal_rate_activity_road-public[%]",
+                    "cal_rate_activity_HDV[%]",
+                    "cal_rate_activity_rail-freight[%]",
+                    "cal_rate_activity_IWW[%]"
                 ]
             }
         },
@@ -664,20 +632,27 @@
         },
         "string-input-550:693:1146:446":{
             "type":"string",
-            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"lfs_fwaste_(.*)\\[kcal]"
+            "example":".*"
         },
         "column-filter-550:679:1151:652":{
             "type":"object",
             "properties":{
                 "columns":{
-                    "type":"array"
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"cal_tra_calibration_HDV[Gtkm]"
+                    }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
+                    "cal_tra_calibration_HDV[Gtkm]",
+                    "cal_tra_calibration_rail[Gtkm]",
+                    "cal_tra_calibration_IWW[Gtkm]"
                 ]
             }
         },
@@ -702,9 +677,9 @@
         },
         "string-input-550:680:1150:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[1000m2]",
+            "default":"identifier",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_(.*)\\[1000m2]"
+            "example":"identifier"
         },
         "single-selection-550:695:1146:463":{
             "type":"object",
@@ -847,9 +822,9 @@
         },
         "string-input-550:679:1146:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[pkm]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"lfs_(.*)\\[pkm]"
+            "example":".*"
         },
         "string-input-550:679:1146:445":{
             "type":"string",
@@ -874,12 +849,19 @@
             "type":"object",
             "properties":{
                 "columns":{
-                    "type":"array"
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"cal_tra_calibration_HDV[Gtkm]"
+                    }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
+                    "cal_tra_calibration_HDV[Gtkm]",
+                    "cal_tra_calibration_rail[Gtkm]",
+                    "cal_tra_calibration_IWW[Gtkm]"
                 ]
             }
         },
@@ -891,9 +873,9 @@
         },
         "string-input-550:679:1146:444":{
             "type":"string",
-            "default":"lfs",
+            "default":"prefix",
             "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
-            "example":"lfs"
+            "example":"prefix"
         },
         "single-selection-559:4:355":{
             "type":"object",
@@ -910,15 +892,15 @@
         },
         "string-input-550:680:1146:444":{
             "type":"string",
-            "default":"lfs",
+            "default":"prefix",
             "description":"Name of resulting columns. The name will be appended with the iterator(s) (see below).",
-            "example":"lfs"
+            "example":"prefix"
         },
         "string-input-550:679:1150:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[pkm]",
+            "default":"identifier",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_(.*)\\[pkm]"
+            "example":"identifier"
         },
         "single-selection-550:693:1150:659:661":{
             "type":"object",
@@ -935,9 +917,9 @@
         },
         "string-input-550:680:1146:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[1000m2]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"lfs_(.*)\\[1000m2]"
+            "example":".*"
         },
         "string-input-550:679:1150:444":{
             "type":"string",
@@ -1144,15 +1126,15 @@
         },
         "string-input-550:695:1151:446":{
             "type":"string",
-            "default":"lfs_diet_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_diet_(.*)\\[kcal]"
+            "example":".*"
         },
         "string-input-550:695:1151:445":{
             "type":"string",
-            "default":"cal_lfs_diet_(.*)\\[kcal]",
+            "default":".*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"cal_lfs_diet_(.*)\\[kcal]"
+            "example":".*"
         },
         "single-selection-406:1162:1202:661":{
             "type":"object",
@@ -1540,15 +1522,15 @@
         },
         "string-input-550:679:1151:445":{
             "type":"string",
-            "default":"cal_lfs_travel_(.*)\\[pkm]",
+            "default":".*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"cal_lfs_travel_(.*)\\[pkm]"
+            "example":".*"
         },
         "string-input-550:679:1151:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[pkm]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_(.*)\\[pkm]"
+            "example":".*"
         },
         "single-selection-694:355":{
             "type":"object",
@@ -1849,9 +1831,9 @@
         },
         "string-input-406:1162:1166:445":{
             "type":"string",
-            "default":".*cal_lfs_(.*)\\[.*",
+            "default":".*cal_tra_(.*)\\[.*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":".*cal_lfs_(.*)\\[.*"
+            "example":".*cal_tra_(.*)\\[.*"
         },
         "data-type-558:4:357":{
             "type":"object",
@@ -2240,71 +2222,25 @@
                     "type":"array",
                     "items":{
                         "type":"string",
-                        "default":"Sum(cal_product_activity_agr-wst-wine[%])"
+                        "default":"Sum(cal_product_emissions_total[%])"
                     }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
-                    "Sum(cal_product_activity_agr-wst-wine[%])",
-                    "Sum(cal_product_activity_agr-wst-beer[%])",
-                    "Sum(cal_product_activity_agr-wst-bev-fer[%])",
-                    "Sum(cal_product_activity_agr-wst-bev-alc[%])",
-                    "Sum(cal_product_activity_agr-wst-cereals[%])",
-                    "Sum(cal_product_activity_agr-wst-fruits[%])",
-                    "Sum(cal_product_activity_agr-wst-oilcrops[%])",
-                    "Sum(cal_product_activity_agr-wst-pulses[%])",
-                    "Sum(cal_product_activity_agr-wst-starch[%])",
-                    "Sum(cal_product_activity_agr-wst-coffee[%])",
-                    "Sum(cal_product_activity_agr-wst-stm[%])",
-                    "Sum(cal_product_activity_agr-wst-sugar[%])",
-                    "Sum(cal_product_activity_agr-wst-sweet[%])",
-                    "Sum(cal_product_activity_agr-wst-voil[%])",
-                    "Sum(cal_product_activity_agr-wst-veg[%])",
-                    "Sum(cal_product_activity_agr-wst-dfish[%])",
-                    "Sum(cal_product_activity_agr-wst-ffish[%])",
-                    "Sum(cal_product_activity_agr-wst-pfish[%])",
-                    "Sum(cal_product_activity_agr-wst-seafood[%])",
-                    "Sum(cal_product_activity_agr-wst-oth-aq-animals[%])",
-                    "Sum(cal_product_activity_agr-wst-egg[%])",
-                    "Sum(cal_product_activity_agr-wst-milk[%])",
-                    "Sum(cal_product_activity_agr-wst-offal[%])",
-                    "Sum(cal_product_activity_agr-wst-bov[%])",
-                    "Sum(cal_product_activity_agr-wst-sheep[%])",
-                    "Sum(cal_product_activity_agr-wst-pigs[%])",
-                    "Sum(cal_product_activity_agr-wst-poultry[%])",
-                    "Sum(cal_product_activity_agr-wst-oth-animals[%])",
-                    "Sum(cal_product_activity_agr-wine[%])",
-                    "Sum(cal_product_activity_agr-beer[%])",
-                    "Sum(cal_product_activity_agr-bev-fer[%])",
-                    "Sum(cal_product_activity_agr-bev-alc[%])",
-                    "Sum(cal_product_activity_agr-cereals[%])",
-                    "Sum(cal_product_activity_agr-fruits[%])",
-                    "Sum(cal_product_activity_agr-oilcrops[%])",
-                    "Sum(cal_product_activity_agr-pulses[%])",
-                    "Sum(cal_product_activity_agr-starch[%])",
-                    "Sum(cal_product_activity_agr-coffee[%])",
-                    "Sum(cal_product_activity_agr-stm[%])",
-                    "Sum(cal_product_activity_agr-sugar[%])",
-                    "Sum(cal_product_activity_agr-sweet[%])",
-                    "Sum(cal_product_activity_agr-voil[%])",
-                    "Sum(cal_product_activity_agr-veg[%])",
-                    "Sum(cal_product_activity_agr-dfish[%])",
-                    "Sum(cal_product_activity_agr-ffish[%])",
-                    "Sum(cal_product_activity_agr-pfish[%])",
-                    "Sum(cal_product_activity_agr-seafood[%])",
-                    "Sum(cal_product_activity_agr-oth-aq-animals[%])",
-                    "Sum(cal_product_activity_agr-egg[%])",
-                    "Sum(cal_product_activity_agr-milk[%])",
-                    "Sum(cal_product_activity_agr-offal[%])",
-                    "Sum(cal_product_activity_agr-bov[%])",
-                    "Sum(cal_product_activity_agr-sheep[%])",
-                    "Sum(cal_product_activity_agr-pigs[%])",
-                    "Sum(cal_product_activity_agr-poultry[%])",
-                    "Sum(cal_product_activity_agr-oth-animals[%])",
-                    "Sum(cal_product_activity_tra-total-demand[%])",
-                    "Sum(cal_product_activity_bld-floor-space[%])"
+                    "Sum(cal_product_emissions_total[%])",
+                    "Sum(cal_product_energy_rail[%])",
+                    "Sum(cal_product_energy_road[%])",
+                    "Sum(cal_product_energy_aviation-international[%])",
+                    "Sum(cal_product_energy_aviation-domestic[%])",
+                    "Sum(cal_product_activity_aviation[%])",
+                    "Sum(cal_product_activity_road-private[%])",
+                    "Sum(cal_product_activity_road-public[%])",
+                    "Sum(cal_product_activity_HDV[%])",
+                    "Sum(cal_product_activity_IWW[%])",
+                    "Sum(cal_product_activity_rail-passenger[%])",
+                    "Sum(cal_product_activity_rail-freight[%])"
                 ]
             }
         },
@@ -2495,9 +2431,9 @@
         },
         "string-input-550:693:1150:446":{
             "type":"string",
-            "default":"lfs_fwaste_(.*)\\[kcal]",
+            "default":"identifier",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_fwaste_(.*)\\[kcal]"
+            "example":"identifier"
         },
         "string-input-550:693:1150:444":{
             "type":"string",
@@ -2557,9 +2493,9 @@
         },
         "string-input-406:1162:1180:357":{
             "type":"string",
-            "default":".*lfs_activity.*",
+            "default":".*activity.*",
             "description":"Pattern selecting the columns to aggregate following the aggregation method (see below).\nThis pattern must be written in a Regex format.\nExample: \"sector_variable_.*\" to aggregate all the columns of the same variable from one sector.",
-            "example":".*lfs_activity.*"
+            "example":".*activity.*"
         },
         "single-selection-495:355":{
             "type":"object",
@@ -2639,9 +2575,9 @@
         },
         "string-input-406:1162:1202:642":{
             "type":"string",
-            "default":".*lfs_activity_(.*)\\[.*",
+            "default":".*tra_activity_(.*)\\[.*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. ",
-            "example":".*lfs_activity_(.*)\\[.*"
+            "example":".*tra_activity_(.*)\\[.*"
         },
         "string-input-406:1162:1202:643":{
             "type":"string",
@@ -2678,12 +2614,20 @@
             "type":"object",
             "properties":{
                 "columns":{
-                    "type":"array"
+                    "type":"array",
+                    "items":{
+                        "type":"string",
+                        "default":"Sum(cal_tra_energy_rail[TWh])"
+                    }
                 }
             },
             "description":"This filter is ther for testing purpose. It allows the user to test the regex pattern used in the Pattern section.",
             "example":{
                 "columns":[
+                    "Sum(cal_tra_energy_rail[TWh])",
+                    "Sum(cal_tra_energy_road[TWh])",
+                    "Sum(cal_tra_energy_aviation-international[TWh])",
+                    "Sum(cal_tra_energy_aviation-domestic[TWh])"
                 ]
             }
         },
@@ -3085,15 +3029,15 @@
         },
         "string-input-550:680:1151:445":{
             "type":"string",
-            "default":"cal_lfs_area_(.*)\\[1000m2]",
+            "default":".*",
             "description":"Pattern selecting the first group of columns. The resulting columns will be appended with the iterator, which is a Regex capture group embedded in the pattern. \nExample: \"sector_variable_(.*)\\[.*\" to use the last item before the unit as the iterator. \n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).",
-            "example":"cal_lfs_area_(.*)\\[1000m2]"
+            "example":".*"
         },
         "string-input-550:680:1151:446":{
             "type":"string",
-            "default":"lfs_(.*)\\[1000m2]",
+            "default":".*",
             "description":"Pattern selecting the second group of columns. The columns in this group will be matched with columns from the first group using the iterator. The iterator is defined similarly to the pattern in group 1. \nExample: single column \"sector_demand_.*\", multiple columns \"sector_variable_(.*)\\[.*\"\n\nThis pattern can also optionally include a second iterator for combining each column from the first group with multiple columns from the second group.\nExample: \"sector_variable_(.*)_(.*)\\[.*\"\n\nNote that these patterns can also be used to identify flow variables. They work exactly the same, flow variables matching the name will be transformed into columns in the data (with the same value for every row).\n\nOnly in the Python version, a named regex group can be used to explicitly identify the iterator if it's not the first group. The pattern is \"sector_variable_(.*)_(?P<i>.*)\\[.*\". This give the name \"i\" (as in iterator) to the second group. The naming of the resulting variable is not affected by this (i.e. it's still the iterator,, then the second group of the first pattern, then the second group of the second pattern.",
-            "example":"lfs_(.*)\\[1000m2]"
+            "example":".*"
         },
         "single-selection-494:5:355":{
             "type":"object",

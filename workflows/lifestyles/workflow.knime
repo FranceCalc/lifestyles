@@ -7,15 +7,11 @@
 <config key="authorInformation">
 <entry key="authored-by" type="xstring" value="Vincent.Matton"/>
 <entry key="authored-when" type="xstring" value="2018-03-13 09:18:35 +0100"/>
-<entry key="lastEdited-by" type="xstring" value="carvalho"/>
-<entry key="lastEdited-when" type="xstring" value="2020-01-14 11:36:55 +0100"/>
+<entry key="lastEdited-by" type="xstring" value="Dr Gino Baudry"/>
+<entry key="lastEdited-when" type="xstring" value="2022-08-09 16:15:26 +0200"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="IDLE"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="ERROR"/>
-<entry key="message" type="xstring" value="Error in sub flow."/>
-</config>
 <config key="workflow_variables">
 <config key="Var_0">
 <entry key="name" type="xstring" value="country_filter"/>

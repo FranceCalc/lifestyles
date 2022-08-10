@@ -1,140 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
 <entry key="node_file" type="xstring" value="settings.xml"/>
-<config key="flow_stack">
-<config key="Variable_0">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="splitter_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_lfs_(.*)\[.*|.*cal_product_(.*)\[.*"/>
-</config>
-<config key="Variable_1">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="new_name_start"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="cal_rate"/>
-</config>
-<config key="Variable_2">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="index_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_lfs_(.*)\[.*"/>
-</config>
-<config key="Variable_3">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation-regex-filter"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=""/>
-</config>
-<config key="Variable_4">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation-remove"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="1"/>
-</config>
-<config key="Variable_5">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_method"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="Division 2/1"/>
-</config>
-<config key="Variable_6">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_method (index)"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="3"/>
-</config>
-<config key="Variable_7">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="unit_var"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="%"/>
-</config>
-<config key="Variable_8">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_product_(.*)\[.*"/>
-</config>
-<config key="Variable_9">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="columns_used"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="Sum(cal_lfs_activity_agr-wine[kcal]),Sum(cal_product_activity_agr-wine[%]),Sum(cal_lfs_activity_agr-beer[kcal]),Sum(cal_product_activity_agr-beer[%]),Sum(cal_lfs_activity_agr-bev-fer[kcal]),Sum(cal_product_activity_agr-bev-fer[%]),Sum(cal_lfs_activity_agr-bev-alc[kcal]),Sum(cal_product_activity_agr-bev-alc[%]),Sum(cal_lfs_activity_agr-cereals[kcal]),Sum(cal_product_activity_agr-cereals[%]),Sum(cal_lfs_activity_agr-fruits[kcal]),Sum(cal_product_activity_agr-fruits[%]),Sum(cal_lfs_activity_agr-oilcrops[kcal]),Sum(cal_product_activity_agr-oilcrops[%]),Sum(cal_lfs_activity_agr-pulses[kcal]),Sum(cal_product_activity_agr-pulses[%]),Sum(cal_lfs_activity_agr-starch[kcal]),Sum(cal_product_activity_agr-starch[%]),Sum(cal_lfs_activity_agr-coffee[kcal]),Sum(cal_product_activity_agr-coffee[%]),Sum(cal_lfs_activity_agr-stm[kcal]),Sum(cal_product_activity_agr-stm[%]),Sum(cal_lfs_activity_agr-sugar[kcal]),Sum(cal_product_activity_agr-sugar[%]),Sum(cal_lfs_activity_agr-sweet[kcal]),Sum(cal_product_activity_agr-sweet[%]),Sum(cal_lfs_activity_agr-voil[kcal]),Sum(cal_product_activity_agr-voil[%]),Sum(cal_lfs_activity_agr-veg[kcal]),Sum(cal_product_activity_agr-veg[%]),Sum(cal_lfs_activity_agr-dfish[kcal]),Sum(cal_product_activity_agr-dfish[%]),Sum(cal_lfs_activity_agr-ffish[kcal]),Sum(cal_product_activity_agr-ffish[%]),Sum(cal_lfs_activity_agr-pfish[kcal]),Sum(cal_product_activity_agr-pfish[%]),Sum(cal_lfs_activity_agr-seafood[kcal]),Sum(cal_product_activity_agr-seafood[%]),Sum(cal_lfs_activity_agr-oth-aq-animals[kcal]),Sum(cal_product_activity_agr-oth-aq-animals[%]),Sum(cal_lfs_activity_agr-egg[kcal]),Sum(cal_product_activity_agr-egg[%]),Sum(cal_lfs_activity_agr-milk[kcal]),Sum(cal_product_activity_agr-milk[%]),Sum(cal_lfs_activity_agr-offal[kcal]),Sum(cal_product_activity_agr-offal[%]),Sum(cal_lfs_activity_agr-bov[kcal]),Sum(cal_product_activity_agr-bov[%]),Sum(cal_lfs_activity_agr-sheep[kcal]),Sum(cal_product_activity_agr-sheep[%]),Sum(cal_lfs_activity_agr-pigs[kcal]),Sum(cal_product_activity_agr-pigs[%]),Sum(cal_lfs_activity_agr-poultry[kcal]),Sum(cal_product_activity_agr-poultry[%]),Sum(cal_lfs_activity_agr-oth-animals[kcal]),Sum(cal_product_activity_agr-oth-animals[%]),Sum(cal_lfs_activity_tra-total-demand[pkm]),Sum(cal_product_activity_tra-total-demand[%]),Sum(cal_lfs_activity_bld-floor-space[1000m2]),Sum(cal_product_activity_bld-floor-space[%]),Sum(cal_lfs_activity_agr-wst-wine[kcal]),Sum(cal_product_activity_agr-wst-wine[%]),Sum(cal_lfs_activity_agr-wst-beer[kcal]),Sum(cal_product_activity_agr-wst-beer[%]),Sum(cal_lfs_activity_agr-wst-bev-fer[kcal]),Sum(cal_product_activity_agr-wst-bev-fer[%]),Sum(cal_lfs_activity_agr-wst-bev-alc[kcal]),Sum(cal_product_activity_agr-wst-bev-alc[%]),Sum(cal_lfs_activity_agr-wst-cereals[kcal]),Sum(cal_product_activity_agr-wst-cereals[%]),Sum(cal_lfs_activity_agr-wst-fruits[kcal]),Sum(cal_product_activity_agr-wst-fruits[%]),Sum(cal_lfs_activity_agr-wst-oilcrops[kcal]),Sum(cal_product_activity_agr-wst-oilcrops[%]),Sum(cal_lfs_activity_agr-wst-pulses[kcal]),Sum(cal_product_activity_agr-wst-pulses[%]),Sum(cal_lfs_activity_agr-wst-starch[kcal]),Sum(cal_product_activity_agr-wst-starch[%]),Sum(cal_lfs_activity_agr-wst-coffee[kcal]),Sum(cal_product_activity_agr-wst-coffee[%]),Sum(cal_lfs_activity_agr-wst-stm[kcal]),Sum(cal_product_activity_agr-wst-stm[%]),Sum(cal_lfs_activity_agr-wst-sugar[kcal]),Sum(cal_product_activity_agr-wst-sugar[%]),Sum(cal_lfs_activity_agr-wst-sweet[kcal]),Sum(cal_product_activity_agr-wst-sweet[%]),Sum(cal_lfs_activity_agr-wst-voil[kcal]),Sum(cal_product_activity_agr-wst-voil[%]),Sum(cal_lfs_activity_agr-wst-veg[kcal]),Sum(cal_product_activity_agr-wst-veg[%]),Sum(cal_lfs_activity_agr-wst-dfish[kcal]),Sum(cal_product_activity_agr-wst-dfish[%]),Sum(cal_lfs_activity_agr-wst-ffish[kcal]),Sum(cal_product_activity_agr-wst-ffish[%]),Sum(cal_lfs_activity_agr-wst-pfish[kcal]),Sum(cal_product_activity_agr-wst-pfish[%]),Sum(cal_lfs_activity_agr-wst-seafood[kcal]),Sum(cal_product_activity_agr-wst-seafood[%]),Sum(cal_lfs_activity_agr-wst-oth-aq-animals[kcal]),Sum(cal_product_activity_agr-wst-oth-aq-animals[%]),Sum(cal_lfs_activity_agr-wst-egg[kcal]),Sum(cal_product_activity_agr-wst-egg[%]),Sum(cal_lfs_activity_agr-wst-milk[kcal]),Sum(cal_product_activity_agr-wst-milk[%]),Sum(cal_lfs_activity_agr-wst-offal[kcal]),Sum(cal_product_activity_agr-wst-offal[%]),Sum(cal_lfs_activity_agr-wst-bov[kcal]),Sum(cal_product_activity_agr-wst-bov[%]),Sum(cal_lfs_activity_agr-wst-sheep[kcal]),Sum(cal_product_activity_agr-wst-sheep[%]),Sum(cal_lfs_activity_agr-wst-pigs[kcal]),Sum(cal_product_activity_agr-wst-pigs[%]),Sum(cal_lfs_activity_agr-wst-poultry[kcal]),Sum(cal_product_activity_agr-wst-poultry[%]),Sum(cal_lfs_activity_agr-wst-oth-animals[kcal]),Sum(cal_product_activity_agr-wst-oth-animals[%]),"/>
-</config>
-<config key="Variable_10">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="new_column_list"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="cal_rate_activity_agr-wine[%],cal_rate_activity_agr-beer[%],cal_rate_activity_agr-bev-fer[%],cal_rate_activity_agr-bev-alc[%],cal_rate_activity_agr-cereals[%],cal_rate_activity_agr-fruits[%],cal_rate_activity_agr-oilcrops[%],cal_rate_activity_agr-pulses[%],cal_rate_activity_agr-starch[%],cal_rate_activity_agr-coffee[%],cal_rate_activity_agr-stm[%],cal_rate_activity_agr-sugar[%],cal_rate_activity_agr-sweet[%],cal_rate_activity_agr-voil[%],cal_rate_activity_agr-veg[%],cal_rate_activity_agr-dfish[%],cal_rate_activity_agr-ffish[%],cal_rate_activity_agr-pfish[%],cal_rate_activity_agr-seafood[%],cal_rate_activity_agr-oth-aq-animals[%],cal_rate_activity_agr-egg[%],cal_rate_activity_agr-milk[%],cal_rate_activity_agr-offal[%],cal_rate_activity_agr-bov[%],cal_rate_activity_agr-sheep[%],cal_rate_activity_agr-pigs[%],cal_rate_activity_agr-poultry[%],cal_rate_activity_agr-oth-animals[%],cal_rate_activity_tra-total-demand[%],cal_rate_activity_bld-floor-space[%],cal_rate_activity_agr-wst-wine[%],cal_rate_activity_agr-wst-beer[%],cal_rate_activity_agr-wst-bev-fer[%],cal_rate_activity_agr-wst-bev-alc[%],cal_rate_activity_agr-wst-cereals[%],cal_rate_activity_agr-wst-fruits[%],cal_rate_activity_agr-wst-oilcrops[%],cal_rate_activity_agr-wst-pulses[%],cal_rate_activity_agr-wst-starch[%],cal_rate_activity_agr-wst-coffee[%],cal_rate_activity_agr-wst-stm[%],cal_rate_activity_agr-wst-sugar[%],cal_rate_activity_agr-wst-sweet[%],cal_rate_activity_agr-wst-voil[%],cal_rate_activity_agr-wst-veg[%],cal_rate_activity_agr-wst-dfish[%],cal_rate_activity_agr-wst-ffish[%],cal_rate_activity_agr-wst-pfish[%],cal_rate_activity_agr-wst-seafood[%],cal_rate_activity_agr-wst-oth-aq-animals[%],cal_rate_activity_agr-wst-egg[%],cal_rate_activity_agr-wst-milk[%],cal_rate_activity_agr-wst-offal[%],cal_rate_activity_agr-wst-bov[%],cal_rate_activity_agr-wst-sheep[%],cal_rate_activity_agr-wst-pigs[%],cal_rate_activity_agr-wst-poultry[%],cal_rate_activity_agr-wst-oth-animals[%],"/>
-</config>
-<config key="Variable_11">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="splitter_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_lfs_(.*)\[.*|.*cal_product_(.*)\[.*"/>
-</config>
-<config key="Variable_12">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="new_name_start"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="cal_rate"/>
-</config>
-<config key="Variable_13">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="index_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_lfs_(.*)\[.*"/>
-</config>
-<config key="Variable_14">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation-regex-filter"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=""/>
-</config>
-<config key="Variable_15">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation-remove"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="1"/>
-</config>
-<config key="Variable_16">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_method"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="Division 2/1"/>
-</config>
-<config key="Variable_17">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_method (index)"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="3"/>
-</config>
-<config key="Variable_18">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="unit_var"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="%"/>
-</config>
-<config key="Variable_19">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="aggregation_pattern"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value=".*cal_product_(.*)\[.*"/>
-</config>
-<config key="Variable_20">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="columns_used"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="Sum(cal_lfs_activity_agr-wine[kcal]),Sum(cal_product_activity_agr-wine[%]),Sum(cal_lfs_activity_agr-beer[kcal]),Sum(cal_product_activity_agr-beer[%]),Sum(cal_lfs_activity_agr-bev-fer[kcal]),Sum(cal_product_activity_agr-bev-fer[%]),Sum(cal_lfs_activity_agr-bev-alc[kcal]),Sum(cal_product_activity_agr-bev-alc[%]),Sum(cal_lfs_activity_agr-cereals[kcal]),Sum(cal_product_activity_agr-cereals[%]),Sum(cal_lfs_activity_agr-fruits[kcal]),Sum(cal_product_activity_agr-fruits[%]),Sum(cal_lfs_activity_agr-oilcrops[kcal]),Sum(cal_product_activity_agr-oilcrops[%]),Sum(cal_lfs_activity_agr-pulses[kcal]),Sum(cal_product_activity_agr-pulses[%]),Sum(cal_lfs_activity_agr-starch[kcal]),Sum(cal_product_activity_agr-starch[%]),Sum(cal_lfs_activity_agr-coffee[kcal]),Sum(cal_product_activity_agr-coffee[%]),Sum(cal_lfs_activity_agr-stm[kcal]),Sum(cal_product_activity_agr-stm[%]),Sum(cal_lfs_activity_agr-sugar[kcal]),Sum(cal_product_activity_agr-sugar[%]),Sum(cal_lfs_activity_agr-sweet[kcal]),Sum(cal_product_activity_agr-sweet[%]),Sum(cal_lfs_activity_agr-voil[kcal]),Sum(cal_product_activity_agr-voil[%]),Sum(cal_lfs_activity_agr-veg[kcal]),Sum(cal_product_activity_agr-veg[%]),Sum(cal_lfs_activity_agr-dfish[kcal]),Sum(cal_product_activity_agr-dfish[%]),Sum(cal_lfs_activity_agr-ffish[kcal]),Sum(cal_product_activity_agr-ffish[%]),Sum(cal_lfs_activity_agr-pfish[kcal]),Sum(cal_product_activity_agr-pfish[%]),Sum(cal_lfs_activity_agr-seafood[kcal]),Sum(cal_product_activity_agr-seafood[%]),Sum(cal_lfs_activity_agr-oth-aq-animals[kcal]),Sum(cal_product_activity_agr-oth-aq-animals[%]),Sum(cal_lfs_activity_agr-egg[kcal]),Sum(cal_product_activity_agr-egg[%]),Sum(cal_lfs_activity_agr-milk[kcal]),Sum(cal_product_activity_agr-milk[%]),Sum(cal_lfs_activity_agr-offal[kcal]),Sum(cal_product_activity_agr-offal[%]),Sum(cal_lfs_activity_agr-bov[kcal]),Sum(cal_product_activity_agr-bov[%]),Sum(cal_lfs_activity_agr-sheep[kcal]),Sum(cal_product_activity_agr-sheep[%]),Sum(cal_lfs_activity_agr-pigs[kcal]),Sum(cal_product_activity_agr-pigs[%]),Sum(cal_lfs_activity_agr-poultry[kcal]),Sum(cal_product_activity_agr-poultry[%]),Sum(cal_lfs_activity_agr-oth-animals[kcal]),Sum(cal_product_activity_agr-oth-animals[%]),Sum(cal_lfs_activity_tra-total-demand[pkm]),Sum(cal_product_activity_tra-total-demand[%]),Sum(cal_lfs_activity_bld-floor-space[1000m2]),Sum(cal_product_activity_bld-floor-space[%]),Sum(cal_lfs_activity_agr-wst-wine[kcal]),Sum(cal_product_activity_agr-wst-wine[%]),Sum(cal_lfs_activity_agr-wst-beer[kcal]),Sum(cal_product_activity_agr-wst-beer[%]),Sum(cal_lfs_activity_agr-wst-bev-fer[kcal]),Sum(cal_product_activity_agr-wst-bev-fer[%]),Sum(cal_lfs_activity_agr-wst-bev-alc[kcal]),Sum(cal_product_activity_agr-wst-bev-alc[%]),Sum(cal_lfs_activity_agr-wst-cereals[kcal]),Sum(cal_product_activity_agr-wst-cereals[%]),Sum(cal_lfs_activity_agr-wst-fruits[kcal]),Sum(cal_product_activity_agr-wst-fruits[%]),Sum(cal_lfs_activity_agr-wst-oilcrops[kcal]),Sum(cal_product_activity_agr-wst-oilcrops[%]),Sum(cal_lfs_activity_agr-wst-pulses[kcal]),Sum(cal_product_activity_agr-wst-pulses[%]),Sum(cal_lfs_activity_agr-wst-starch[kcal]),Sum(cal_product_activity_agr-wst-starch[%]),Sum(cal_lfs_activity_agr-wst-coffee[kcal]),Sum(cal_product_activity_agr-wst-coffee[%]),Sum(cal_lfs_activity_agr-wst-stm[kcal]),Sum(cal_product_activity_agr-wst-stm[%]),Sum(cal_lfs_activity_agr-wst-sugar[kcal]),Sum(cal_product_activity_agr-wst-sugar[%]),Sum(cal_lfs_activity_agr-wst-sweet[kcal]),Sum(cal_product_activity_agr-wst-sweet[%]),Sum(cal_lfs_activity_agr-wst-voil[kcal]),Sum(cal_product_activity_agr-wst-voil[%]),Sum(cal_lfs_activity_agr-wst-veg[kcal]),Sum(cal_product_activity_agr-wst-veg[%]),Sum(cal_lfs_activity_agr-wst-dfish[kcal]),Sum(cal_product_activity_agr-wst-dfish[%]),Sum(cal_lfs_activity_agr-wst-ffish[kcal]),Sum(cal_product_activity_agr-wst-ffish[%]),Sum(cal_lfs_activity_agr-wst-pfish[kcal]),Sum(cal_product_activity_agr-wst-pfish[%]),Sum(cal_lfs_activity_agr-wst-seafood[kcal]),Sum(cal_product_activity_agr-wst-seafood[%]),Sum(cal_lfs_activity_agr-wst-oth-aq-animals[kcal]),Sum(cal_product_activity_agr-wst-oth-aq-animals[%]),Sum(cal_lfs_activity_agr-wst-egg[kcal]),Sum(cal_product_activity_agr-wst-egg[%]),Sum(cal_lfs_activity_agr-wst-milk[kcal]),Sum(cal_product_activity_agr-wst-milk[%]),Sum(cal_lfs_activity_agr-wst-offal[kcal]),Sum(cal_product_activity_agr-wst-offal[%]),Sum(cal_lfs_activity_agr-wst-bov[kcal]),Sum(cal_product_activity_agr-wst-bov[%]),Sum(cal_lfs_activity_agr-wst-sheep[kcal]),Sum(cal_product_activity_agr-wst-sheep[%]),Sum(cal_lfs_activity_agr-wst-pigs[kcal]),Sum(cal_product_activity_agr-wst-pigs[%]),Sum(cal_lfs_activity_agr-wst-poultry[kcal]),Sum(cal_product_activity_agr-wst-poultry[%]),Sum(cal_lfs_activity_agr-wst-oth-animals[kcal]),Sum(cal_product_activity_agr-wst-oth-animals[%]),"/>
-</config>
-<config key="Variable_21">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="new_column_list"/>
-<entry key="class" type="xstring" value="STRING"/>
-<entry key="value" type="xstring" value="cal_rate_activity_agr-wine[%],cal_rate_activity_agr-beer[%],cal_rate_activity_agr-bev-fer[%],cal_rate_activity_agr-bev-alc[%],cal_rate_activity_agr-cereals[%],cal_rate_activity_agr-fruits[%],cal_rate_activity_agr-oilcrops[%],cal_rate_activity_agr-pulses[%],cal_rate_activity_agr-starch[%],cal_rate_activity_agr-coffee[%],cal_rate_activity_agr-stm[%],cal_rate_activity_agr-sugar[%],cal_rate_activity_agr-sweet[%],cal_rate_activity_agr-voil[%],cal_rate_activity_agr-veg[%],cal_rate_activity_agr-dfish[%],cal_rate_activity_agr-ffish[%],cal_rate_activity_agr-pfish[%],cal_rate_activity_agr-seafood[%],cal_rate_activity_agr-oth-aq-animals[%],cal_rate_activity_agr-egg[%],cal_rate_activity_agr-milk[%],cal_rate_activity_agr-offal[%],cal_rate_activity_agr-bov[%],cal_rate_activity_agr-sheep[%],cal_rate_activity_agr-pigs[%],cal_rate_activity_agr-poultry[%],cal_rate_activity_agr-oth-animals[%],cal_rate_activity_tra-total-demand[%],cal_rate_activity_bld-floor-space[%],cal_rate_activity_agr-wst-wine[%],cal_rate_activity_agr-wst-beer[%],cal_rate_activity_agr-wst-bev-fer[%],cal_rate_activity_agr-wst-bev-alc[%],cal_rate_activity_agr-wst-cereals[%],cal_rate_activity_agr-wst-fruits[%],cal_rate_activity_agr-wst-oilcrops[%],cal_rate_activity_agr-wst-pulses[%],cal_rate_activity_agr-wst-starch[%],cal_rate_activity_agr-wst-coffee[%],cal_rate_activity_agr-wst-stm[%],cal_rate_activity_agr-wst-sugar[%],cal_rate_activity_agr-wst-sweet[%],cal_rate_activity_agr-wst-voil[%],cal_rate_activity_agr-wst-veg[%],cal_rate_activity_agr-wst-dfish[%],cal_rate_activity_agr-wst-ffish[%],cal_rate_activity_agr-wst-pfish[%],cal_rate_activity_agr-wst-seafood[%],cal_rate_activity_agr-wst-oth-aq-animals[%],cal_rate_activity_agr-wst-egg[%],cal_rate_activity_agr-wst-milk[%],cal_rate_activity_agr-wst-offal[%],cal_rate_activity_agr-wst-bov[%],cal_rate_activity_agr-wst-sheep[%],cal_rate_activity_agr-wst-pigs[%],cal_rate_activity_agr-wst-poultry[%],cal_rate_activity_agr-wst-oth-animals[%],"/>
-</config>
-</config>
+<config key="flow_stack"/>
 <config key="internal_node_subsettings">
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
@@ -155,7 +22,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <entry key="virtual-in-ID" type="xint" value="598"/>
 <config key="inports">
 <config key="inport_0">

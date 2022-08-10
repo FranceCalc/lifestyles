@@ -30,7 +30,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" value="Reads the lever data of population broken down by age class and sex. For the historical part, age classes and sex are not considered, population numbers refer to total population."/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <config key="workflow_credentials"/>
 <config key="annotations">
 <config key="annotation_0">

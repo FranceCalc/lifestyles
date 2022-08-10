@@ -30,7 +30,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" value="Reads the values of levers on calorie split according to age, sex and food groups considered in the EUcalc. For the historical part the historical split is returned by country and food group only."/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <config key="workflow_credentials"/>
 <config key="annotations">
 <config key="annotation_0">
